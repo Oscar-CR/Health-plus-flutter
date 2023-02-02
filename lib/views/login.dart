@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_plus/data/colors.dart';
+import 'package:health_plus/services/notifications_channel.dart';
 import 'package:health_plus/views/home.dart';
 import 'package:health_plus/views/principal.dart';
 
@@ -16,6 +17,12 @@ class LoginFormState extends State<Login> {
   late String _email;
   late String _password;
   String _errorMessage = '';
+
+  @override
+  void initState() {
+    createNotificationChannel();
+    super.initState();
+  }
 
   bool boolTrue = false;
   @override
@@ -73,11 +80,6 @@ class LoginFormState extends State<Login> {
                                             icon: Icon(
                                               Icons.mail,
                                             )),
-                                        validator: (value) => value!.isEmpty
-                                            ? 'Este campo no puede estar vacio'
-                                            : null,
-                                        onSaved: (value) =>
-                                            _email = value.toString(),
                                       ),
                                     ),
                                   ),
@@ -103,11 +105,6 @@ class LoginFormState extends State<Login> {
                                         ),
                                       ),
                                       obscureText: true,
-                                      validator: (value) => value!.isEmpty
-                                          ? 'Este campo no puede estar vacio'
-                                          : null,
-                                      onSaved: (value) =>
-                                          _password = value.toString(),
                                     ),
                                   ),
                                   Padding(
@@ -115,6 +112,7 @@ class LoginFormState extends State<Login> {
                                         top: 32, left: 16, right: 16),
                                     child: SizedBox(
                                       width: double.infinity,
+                                      height: 48,
                                       child: ElevatedButton(
                                           onPressed: () => {
                                                 Navigator.push(

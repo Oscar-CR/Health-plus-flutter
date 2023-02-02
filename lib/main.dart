@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_plus/data/colors.dart';
+import 'package:health_plus/services/notifications_channel.dart';
 import 'package:health_plus/views/principal.dart';
 import 'package:health_plus/views/login.dart';
 
@@ -16,6 +17,12 @@ class MyApp extends StatefulWidget {
 
 class _HomeState extends State<MyApp> {
   String log = "";
+
+  @override
+  void initState() {
+    createNotificationChannel();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
