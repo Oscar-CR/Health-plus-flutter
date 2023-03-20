@@ -40,6 +40,7 @@ class HelpRecyclerPageState extends State<HelpRecyclerPage> {
                       widget.helpList[index].duration,
                       widget.helpList[index].price)
                 ],
+                context: context,
               );
             },
           ),

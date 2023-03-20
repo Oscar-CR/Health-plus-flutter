@@ -9,4 +9,5 @@ class StringsApp {
 
   static String homeWelcome = '¡Hola!';
 
+  static String alertHelpButton = 'CONTACTAR';
 }

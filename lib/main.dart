@@ -44,6 +44,11 @@ class MainState extends State<Main> {
             primaryColorDark: ColorApp.primaryColorDark,
             hoverColor: Colors.green,
             backgroundColor: ColorApp.backgroundColorLight,
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: ColorApp.primaryColorNormal,
+                  foregroundColor: Colors.white),
+            ),
             appBarTheme:
                 const AppBarTheme(backgroundColor: ColorApp.primaryColorDark)),
         home: DefaultTabController(
