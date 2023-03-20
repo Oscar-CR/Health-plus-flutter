@@ -1,8 +1,8 @@
-class ProblemService {
+class Services {
   final String name;
   final String phone;
   final String image;
-  const ProblemService(
+  const Services(
     this.name,
     this.phone,
     this.image,

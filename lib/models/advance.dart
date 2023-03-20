@@ -1,7 +1,7 @@
-class Advance {
+class Adiction {
   final String problem;
   final String description;
-  const Advance(
+  const Adiction(
     this.problem,
     this.description,
   );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_plus/constants/colors.dart';
 import 'package:health_plus/constants/strings.dart';
 import 'package:health_plus/views/advance/advance.dart';
-import 'package:health_plus/views/community/community.dart';
+import 'package:health_plus/views/help/help-center.dart';
 import 'package:health_plus/views/home/home.dart';
 
 void main() {
@@ -50,8 +50,8 @@ class MainState extends State<Main> {
             length: 15,
             child: Scaffold(
               body: _selectedIndex == 0
-                  ? CommunityPage(
-                      title: StringsApp.buttonNavCommunity,
+                  ? HelpCenterPage(
+                      title: StringsApp.buttonNavHelpCenter,
                     )
                   : _selectedIndex == 1
                       ? HomePage(
@@ -64,7 +64,7 @@ class MainState extends State<Main> {
                 items: <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
                     icon: const Icon(Icons.group),
-                    label: StringsApp.buttonNavCommunity,
+                    label: StringsApp.buttonNavHelpCenter,
                   ),
                   BottomNavigationBarItem(
                     icon: const Icon(Icons.home),

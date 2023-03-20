@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class CardProblem extends StatefulWidget {
-  const CardProblem(
+class CardAdiction extends StatefulWidget {
+  const CardAdiction(
       {Key? key, required this.problem, required this.description})
       : super(key: key);
 
@@ -11,29 +11,23 @@ class CardProblem extends StatefulWidget {
   final String description;
 
   @override
-  State<CardProblem> createState() => CardProblemState();
+  State<CardAdiction> createState() => CardAdictionState();
 }
 
-class CardProblemState extends State<CardProblem> {
-  int colorNumber = Random().nextInt(6);
-  Color color = const Color(0XFFB7BEFF);
+class CardAdictionState extends State<CardAdiction> {
+  Color color = const Color(0XFF8ACBB7);
   @override
   void initState() {
-    if (colorNumber == 2) {
+    if (widget.description == 'Sin registro') {
       color = const Color(0XFF8ACBB7);
     }
-    if (colorNumber == 3) {
+    if (widget.description == 'Consumo moderado') {
       color = const Color(0XFFF2D791);
     }
-    if (colorNumber == 4) {
+    if (widget.description == 'Consumo alto') {
       color = const Color(0XFFFF9C9C);
     }
-    if (colorNumber == 5) {
-      color = const Color(0XFFF1A3E0);
-    }
-    if (colorNumber == 6) {
-      color = const Color(0XFFD0ABFF);
-    }
+
     super.initState();
   }
 
@@ -43,7 +37,7 @@ class CardProblemState extends State<CardProblem> {
       width: double.infinity,
       height: 120,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: Card(
             elevation: 4,
             shape: RoundedRectangleBorder(
@@ -58,7 +52,7 @@ class CardProblemState extends State<CardProblem> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 12),
+                        padding: const EdgeInsets.only(bottom: 32),
                         child: Text(
                           widget.problem,
                           style: const TextStyle(

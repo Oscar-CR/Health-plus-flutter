@@ -9,5 +9,5 @@ class ColorApp {
   static const secundaryColorNormal = Color(0XFFF57B45);
   static const secundaryColorLight = Color(0XFFFCBC9F);
 
-  static const backgroundColorLight = Color(0xffE4E4E4);
+  static const backgroundColorLight = Color(0xffFAFAFA);
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:health_plus/constants/colors.dart';
+import 'package:health_plus/constants/services.dart';
 import 'package:health_plus/constants/strings.dart';
+import 'package:health_plus/models/problem.dart';
 import 'package:health_plus/widgets/card-service.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,25 +15,34 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  List<Services> problemService = StringsServices().problemServiceList;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title), actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.person),
+          tooltip: 'User',
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Aqui va la vista de usuario')));
+          },
+        ),
+      ]),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.only(left: 16, top: 16),
             child: Text(
-              StringsApp.homeWelcome,
-              style:
-                  const TextStyle(fontSize: 20.00, fontWeight: FontWeight.bold),
+              StringsApp.homeServicesTitle,
+              style: const TextStyle(
+                fontSize: 16.00,
+              ),
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 16, bottom: 0),
-            color: Colors.white,
+            color: ColorApp.backgroundColorLight,
             child: Row(
               children: [
                 Expanded(
@@ -41,12 +53,12 @@ class HomePageState extends State<HomePage> {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.all(0),
-                    itemCount: 20,
+                    itemCount: problemService.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return const CardService(
-                          name: 'Nombre',
-                          phone: '5555',
-                          image: 'lib/assets/heart-care.png');
+                      return CardService(
+                          name: problemService[index].name,
+                          phone: problemService[index].phone,
+                          image: problemService[index].image);
                     },
                   ),
                 )),
