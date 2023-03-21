@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:health_plus/constants/adictions.dart';
 import 'package:health_plus/models/advance.dart';
+import 'package:health_plus/views/user/account.dart';
 import 'package:health_plus/widgets/card-adiction.dart';
 
 class AdvancePage extends StatefulWidget {
@@ -23,8 +24,10 @@ class AdvancePageState extends State<AdvancePage> {
           icon: const Icon(Icons.person),
           tooltip: 'User',
           onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Aqui va la vista de usuario')));
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AccountPage()),
+            );
           },
         ),
       ]),

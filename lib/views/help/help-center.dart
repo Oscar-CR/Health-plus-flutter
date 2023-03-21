@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_plus/constants/helpInformation.dart';
 import 'package:health_plus/models/help.dart';
 import 'package:health_plus/views/help/help-recycler.dart';
+import 'package:health_plus/views/user/account.dart';
 
 class HelpCenterPage extends StatefulWidget {
   const HelpCenterPage({super.key, required this.title});
@@ -24,8 +25,10 @@ class HelpCenterPageState extends State<HelpCenterPage> {
             icon: const Icon(Icons.person),
             tooltip: 'User',
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Aqui va la vista de usuario')));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AccountPage()),
+              );
             },
           ),
         ],

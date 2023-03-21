@@ -3,7 +3,9 @@ import 'package:health_plus/constants/colors.dart';
 import 'package:health_plus/constants/services.dart';
 import 'package:health_plus/constants/strings.dart';
 import 'package:health_plus/models/problem.dart';
+import 'package:health_plus/views/user/account.dart';
 import 'package:health_plus/widgets/card-service.dart';
+import 'package:health_plus/widgets/chart-advance.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -24,14 +26,35 @@ class HomePageState extends State<HomePage> {
           icon: const Icon(Icons.person),
           tooltip: 'User',
           onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Aqui va la vista de usuario')));
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AccountPage()),
+            );
           },
         ),
       ]),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const Padding(
+            padding: EdgeInsets.only(left: 16, top: 16, bottom: 8),
+            child: Text(
+              'Seguimiento de Consumo',
+              style: TextStyle(
+                fontSize: 16.00,
+              ),
+            ),
+          ),
+          const ChartAdvance(),
+          /* const Padding(
+            padding: EdgeInsets.only(left: 16, top: 16),
+            child: Text(
+              'Comunidad',
+              style: TextStyle(
+                fontSize: 16.00,
+              ),
+            ),
+          ), */
           Padding(
             padding: const EdgeInsets.only(left: 16, top: 16),
             child: Text(

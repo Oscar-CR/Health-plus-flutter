@@ -9,10 +9,12 @@ class StringsServices {
         "Cruz Roja", "53951111", "lib/assets/emergency-medical-support.png"),
     const Services("Bomberos", "57683700",
         "lib/assets/fire-workers-on-fire-emergency-alert-moving-towards-vehicle.png"),
-    const Services("Bomberos", "57683700",
-        "lib/assets/fire-workers-on-fire-emergency-alert-moving-towards-vehicle.png"),
     const Services("Locatel", "56581111", "lib/assets/find-location.png"),
     const Services("Fuga de Gas", "53532763",
-        "lib/assets/girl-calling-fire-emergency-service-due-to-fire-in-kitchen.png")
+        "lib/assets/girl-calling-fire-emergency-service-due-to-fire-in-kitchen.png"),
+    const Services(
+        "Fuga de Agua", "56543210", "lib/assets/water-pipe-leakage-repair.png"),
+    const Services("Denuncia Anónima", "56543210",
+        "lib/assets/customer-support-executive.png")
   ];
 }
