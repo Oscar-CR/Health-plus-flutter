@@ -39,6 +39,7 @@ dependencies:
   url_launcher: ^6.1.10
   carousel_slider: ^4.2.1
   syncfusion_flutter_charts: ^20.4.54
+  shared_preferences: ^2.0.20
 
 dev_dependencies:
   flutter_test:

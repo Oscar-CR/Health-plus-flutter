@@ -45,7 +45,9 @@ class HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          const ChartAdvance(),
+          const ChartAdvance(
+            comsumeList: [],
+          ),
           /* const Padding(
             padding: EdgeInsets.only(left: 16, top: 16),
             child: Text(
