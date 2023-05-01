@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
    <application
-        android:label="health_plus"
+        android:label="Health Plus"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
