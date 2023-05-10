@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_plus/constants/helpInformation.dart';
 import 'package:health_plus/models/help.dart';
 import 'package:health_plus/views/help/help-recycler.dart';
+import 'package:health_plus/views/info/info.dart';
 import 'package:health_plus/views/user/account.dart';
 
 class HelpCenterPage extends StatefulWidget {
@@ -15,12 +16,24 @@ class HelpCenterPage extends StatefulWidget {
 
 class HelpCenterPageState extends State<HelpCenterPage> {
   List<Help> cdmxHelpList = StringsHelpInformation().cdmxHelpList;
+  List<Help> edomexHelpList = StringsHelpInformation().edomexHelpList;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.info_outline_rounded),
+            tooltip: 'info',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const InfoPage()),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.person),
             tooltip: 'User',
@@ -90,7 +103,7 @@ class HelpCenterPageState extends State<HelpCenterPage> {
             helpList: cdmxHelpList,
           ),
           HelpRecyclerPage(
-            helpList: cdmxHelpList,
+            helpList: edomexHelpList,
           ),
           HelpRecyclerPage(
             helpList: cdmxHelpList,

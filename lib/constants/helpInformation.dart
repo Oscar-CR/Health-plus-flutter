@@ -57,4 +57,61 @@ class StringsHelpInformation {
         'No especificado',
         '34500 Cuota Fija '),
   ];
+
+  final List<Help> edomexHelpList = [
+    const Help(
+        'Clínica de Rehabilitación para Alcoholismo y otras Drogas A.C. ',
+        'Toluca',
+        'Bosque de Chapultepec # 117, Col. Niños Héroes, C.P. 50100, Toluca, Estado de México',
+        '7222747580',
+        '12 - 17 años (adolescentes) y 18 - 59 años (adultos) ',
+        'Mixto',
+        '3 meses',
+        '45000 Cuota Fija'),
+    const Help(
+        'Centro de Recuperación y Apoyo Familiar Santa Elena, A.C.',
+        'Ecatepec de Morelos',
+        'Loro #2, Manz. 4, lt. 3, PB, Local 1, Col. Granjas Populares Guadalupe, C.P. 55104, Ecatepec de Morelos, Estado de México',
+        '5580010883',
+        '12 - 17 años (adolescentes) y 18 - 59 años (adultos)',
+        'Mixto',
+        '3 meses',
+        '30600 Cuota Fija'),
+    const Help(
+        'Centro Especializado de Prevención y Rehabilitación a las Adicciones',
+        'Metepec',
+        'Remora esquina Marina s/n, Col. Las Marinas, C.P. 52176, Metepec, Estado de México ',
+        '72231947 67',
+        '12 - 17 años (adolescentes) y 18 - 59 años (adultos)',
+        'Profesional',
+        'No especificado',
+        'Gratuito'),
+    const Help(
+        'Drogadictos Anónimos A.C. "El hijo Pródigo" Lerma ',
+        'Lerma',
+        '1° de Mayo No. 8,  Col. Centro, C.P. 52080',
+        '7282825824',
+        'Hombres 18 - 59 años (adultos)',
+        'Ayuda Mutua',
+        'No especificado',
+        'Gratuito'),
+    const Help(
+        'Drogadictos Anónimos A.C. Grupo "La Salida"',
+        'Nezahualcóyotl',
+        'Av. Bordo de Xochiaca No. 7. Col. Edo. de México C.P. 57210',
+        '5557367282',
+        '18 - 59 años (adultos) ',
+        'Ayuda Mutua',
+        '3 meses',
+        'Gratuito'),
+    const Help(
+        'Grupo 24 Horas Heróes Coacalco A.C. Fortaleza ',
+        'Coacalco de Berriozábal',
+        'Zarzaparrillas # 219, Col. Villa de las Flores, C.P. 55710, Coacalco, Estado de México.',
+        '5558791927',
+        'Hombres 18 - 59 años (adultos)',
+        'Mixto',
+        'No especificado',
+        '12700 Cuota Fija '),
+  ];
 }

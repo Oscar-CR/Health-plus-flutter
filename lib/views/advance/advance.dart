@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:health_plus/constants/adictions.dart';
 import 'package:health_plus/constants/colors.dart';
+import 'package:health_plus/main.dart';
 import 'package:health_plus/models/advance.dart';
 import 'package:health_plus/models/consume.dart';
+import 'package:health_plus/views/info/info.dart';
 import 'package:health_plus/views/user/account.dart';
 import 'package:health_plus/widgets/chart-advance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,10 +24,30 @@ class AdvancePageState extends State<AdvancePage> {
   List<Adiction> adictionList = StringsAdictions().adictionList;
   final _formKey = GlobalKey<FormState>();
 
-  List<Consume> consummedList = [];
+  late int getContador;
+  late int total;
   @override
   void initState() {
+    total = 0;
+    getContador = 0;
+    getData();
+
     super.initState();
+  }
+
+  Future getData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final int? contador = prefs.getInt('contador');
+
+    setState(() {
+      if (contador != null) {
+        getContador = contador;
+        total = contador;
+        print(getContador);
+      } else {
+        storeTotal(0);
+      }
+    });
   }
 
   String listKey = "consummed";
@@ -34,6 +56,16 @@ class AdvancePageState extends State<AdvancePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title), actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.info_outline_rounded),
+          tooltip: 'info',
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const InfoPage()),
+            );
+          },
+        ),
         IconButton(
           icon: const Icon(Icons.person),
           tooltip: 'User',
@@ -52,11 +84,14 @@ class AdvancePageState extends State<AdvancePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Seguimiento diario',
-                style: TextStyle(fontSize: 20),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Seguimiento Diario',
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
-              ChartAdvance(comsumeList: consummedList),
+              total > getContador ? const ChartAdvance() : const ChartAdvance(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
@@ -64,7 +99,7 @@ class AdvancePageState extends State<AdvancePage> {
                   height: 60,
                   child: ElevatedButton(
                     onPressed: () {
-                      showHelpAlertDialog(context);
+                      showHelpAlertDialog(context, getContador);
                     },
                     child: const Text('AGREGAR REGISTRO'),
                   ),
@@ -77,7 +112,7 @@ class AdvancePageState extends State<AdvancePage> {
     );
   }
 
-  void showHelpAlertDialog(BuildContext context) {
+  void showHelpAlertDialog(BuildContext context, contador) {
     final _dialogFormKey = GlobalKey<FormState>();
     final _type = TextEditingController();
     final _consummed = TextEditingController();
@@ -151,12 +186,18 @@ class AdvancePageState extends State<AdvancePage> {
                           child: ElevatedButton(
                             onPressed: () {
                               if (_dialogFormKey.currentState!.validate()) {
-                                consummedList.add(Consume(
-                                    'Dia',
-                                    _consummed.text.toString(),
-                                    _type.text.toString()));
-
+                                setState(() {
+                                  total = contador + int.parse(_consummed.text);
+                                  storeTotal(total);
+                                  getData();
+                                });
                                 Navigator.pop(context);
+
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(const SnackBar(
+                                  content:
+                                      Text("Registro guardado exitosamente"),
+                                ));
                               }
                             },
                             child: const Text('AGREGAR REGISTRO'),
@@ -172,14 +213,15 @@ class AdvancePageState extends State<AdvancePage> {
         });
   }
 
-  /* void storeStringList(List<Consume> list) async {
-    
+  void storeTotal(int total) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList(listKey,  list.join() list);
+    await prefs.setInt('contador', total);
   }
 
-  Future<List<String>?> getStringList() async {
+  getTotal() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getStringList(listKey);
-  } */
+    final int? contador = prefs.getInt('contador');
+
+    return contador;
+  }
 }

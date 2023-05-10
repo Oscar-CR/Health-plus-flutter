@@ -41,6 +41,7 @@ dependencies:
   syncfusion_flutter_charts: ^20.4.54
   shared_preferences: ^2.0.20
   flutter_native_splash: ^2.2.19
+  flutter_walkthrough_screen: ^2.0.2
 
 dev_dependencies:
   flutter_test:
